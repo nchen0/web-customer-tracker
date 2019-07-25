@@ -1,12 +1,5 @@
 <%--
   Created by IntelliJ IDEA.
-  User: nchen
-  Date: 2019-07-25
-  Time: 14:20
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-  Created by IntelliJ IDEA.
   User: pacom
   Date: 7/23/2019
   Time: 7:11 PM
@@ -16,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>List Customers - Sorted</title>
+    <title>List Customers</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
 </head>
 <body>
@@ -35,14 +28,20 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
 
             <%--Loop over & print out customers--%>
             <c:forEach var="tempCustomer" items="${customers}">
+                <%--Construct an update link--%>
+                <c:url var="updateLink" value="/customer/showFormForUpdate">
+                    <c:param name="customerId" value="${tempCustomer.id}" />
+                </c:url>
                 <tr>
                     <td> ${tempCustomer.firstName}</td>
                     <td> ${tempCustomer.lastName} </td>
                     <td> ${tempCustomer.email}</td>
+                    <td><a href="${updateLink}">Update</a></td>
                 </tr>
             </c:forEach>
         </table>
