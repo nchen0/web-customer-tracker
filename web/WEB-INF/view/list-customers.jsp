@@ -22,6 +22,7 @@
     <div id="container">
         <div id="content">
             <input type="button" value="Add Customer" onclick="window.location.href='showAddForm'" class="add-button"/>
+            <input type="button" value="Sort" onclick="window.location.href='list/sorted'" class="add-button"/>
             <table>
                 <tr>
                     <th>First name</th>
